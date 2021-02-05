@@ -1,0 +1,14 @@
+{
+  "name": "docker-codecept-multimocha-puppeteer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mt-ag/docker-codecept-multimocha-puppeteer.git",
+  "author": "phartenfeller <pharti@hotmail.de>",
+  "license": "MIT",
+  "dependencies": {
+    "codeceptjs": "^3.0.5",
+    "mocha-junit-reporter": "^2.0.0",
+    "mocha-multi": "^1.1.3",
+    "puppeteer": "^7.0.1"
+  }
+}
