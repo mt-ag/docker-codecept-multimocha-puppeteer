@@ -2,7 +2,7 @@
 
 This Image uses the Zenika's [alpine-chrome](https://github.com/Zenika/alpine-chrome) Image as base and setups [Codecept](https://codecept.io/) and [Multimocha](https://codecept.io/reports/#multi-reports) with it. You can mount your Codecept project into a container where it will get executed without additional setup.
 
-To take advantage of the [Sandbox features](https://chromium.googlesource.com/chromium/src/+/master/docs/design/sandbox.md) of Chrome and securely run any tests, you need to provide a seccomp file ( (chrome-seccomp.json)[./chrome-seccomp.json] ) to the container.
+To take advantage of the [Sandbox features](https://chromium.googlesource.com/chromium/src/+/master/docs/design/sandbox.md) of Chrome and securely run any tests, you need to provide a seccomp file ([chrome-seccomp.json](chrome-seccomp.json)) to the container.
 
 You can do this by providing these additional parameters to the docker run command: `--security-opt seccomp=$(pwd)/chrome-seccomp.json`
 
