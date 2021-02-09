@@ -13,13 +13,15 @@ function show_help() {
 if [[ -d "/tests/" ]]; then
 	echo "Mounted directory has been found."
 
-	cp -a /tests/. /codecept
+	[ -d "/tests/output" ] || mkdir /tests/output
+
+	cp -ap /tests/. /codecept
 
 	[ -d "/codecept/output" ] || mkdir /codecept/output
 
 	yarn codeceptjs run --reporter mocha-multi | tee /codecept/output/output.log
 
-	cp -r /codecept/output /tests/
+	cp -r /codecept/output/* /tests/output/
 else
 	show_help
 fi
