@@ -9,7 +9,7 @@ function file_exists() {
   fi
 }
 
-rm -rf ./test/sampke/output || true
+rm -rf ./test/sample/output || true
 
 docker run -it --init --rm --cap-add=SYS_ADMIN -v $(pwd)/test/sample:/tests codecept-multimocha-puppeteer:latest
 
