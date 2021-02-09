@@ -28,7 +28,7 @@ jobs:
             docker-compose --file docker-compose.test.yml build
             docker-compose --file docker-compose.test.yml run sut
           else
-            docker build . --file Dockerfile -t codecept-multimocha-playwright
+            docker build . --file Dockerfile -t codecept-multimocha-puppeteer
             ./run_tests.sh
           fi
   # Push image to GitHub Packages.
