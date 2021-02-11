@@ -1,5 +1,7 @@
 FROM zenika/alpine-chrome:86-with-puppeteer
 
+LABEL org.opencontainers.image.source https://github.com/mt-ag/docker-codecept-multimocha-puppeteer
+
 USER root
 
 RUN mkdir /codecept && \ 
