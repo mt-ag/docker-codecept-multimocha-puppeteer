@@ -13,13 +13,13 @@ Credits go to the alpine-chrome Image for [providing this method](https://github
 Run your codecept project
 
 ```sh
-docker run -it --rm --security-opt seccomp=$(pwd)/chrome-seccomp.json -v /path/to/your/codecept/folder:/tests codecept-multimocha-puppeteer:latest
+docker run -it --rm --security-opt seccomp=$(pwd)/chrome-seccomp.json -v /path/to/your/codecept/folder:/tests ghcr.io/mt-ag/codecept-multimocha-puppeteer:latest
 ```
 
 Run the example test:
 
 ```sh
-docker run -it --rm --security-opt seccomp=$(pwd)/chrome-seccomp.json -v $(pwd)/test/sample:/tests codecept-multimocha-puppeteer:latest
+docker run -it --rm --security-opt seccomp=$(pwd)/chrome-seccomp.json -v $(pwd)/test/sample:/tests ghcr.io/mt-ag/codecept-multimocha-puppeteer:latest
 ```
 
 Note that you need Playwright in your Codecept config and multimocha:
