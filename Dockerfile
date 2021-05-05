@@ -1,4 +1,4 @@
-FROM zenika/alpine-chrome:86-with-puppeteer
+FROM zenika/alpine-chrome:89-with-puppeteer
 
 LABEL org.opencontainers.image.source https://github.com/mt-ag/docker-codecept-multimocha-puppeteer
 
