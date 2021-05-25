@@ -15,7 +15,7 @@ if [[ -d "/tests/" ]]; then
 
 	[ -d "/tests/output" ] || mkdir /tests/output
 
-	cp -ap /tests/. /codecept
+	cp -r /tests/* /codecept/
 
 	[ -d "/codecept/output" ] || mkdir /codecept/output
 
