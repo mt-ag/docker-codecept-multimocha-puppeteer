@@ -1,17 +1,42 @@
-FROM zenika/alpine-chrome:89-with-puppeteer
+FROM alpine
 
 LABEL org.opencontainers.image.source https://github.com/mt-ag/docker-codecept-multimocha-puppeteer
 
-USER root
+# Installs latest Chromium (92) package.
+RUN apk add --no-cache \
+      nss \
+      freetype \
+      harfbuzz \
+      ca-certificates \
+      ttf-freefont \
+      nodejs \
+      yarn
 
+# check version https://pkgs.alpinelinux.org/packages?name=chromium&branch=v3.14&repo=community
+RUN apk add --no-cache \
+   chromium --repository=http://dl-cdn.alpinelinux.org/alpine/v3.14/community
+
+# Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
+# Add user so we don't need --no-sandbox.
+RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
+    && mkdir -p /home/pptruser/Downloads /app \
+    && chown -R pptruser:pptruser /home/pptruser \
+    && chown -R pptruser:pptruser /app
+
+
+# Setup exec folder
 RUN mkdir /codecept && \ 
-  chown -R chrome:chrome /codecept
+  chown -R pptruser:pptruser /codecept
 
 COPY . /codecept
 
 RUN cd /codecept && yarn --prod
 
-USER chrome
+# Run everything after as non-privileged user.
+USER pptruser
 
 WORKDIR /codecept
 
