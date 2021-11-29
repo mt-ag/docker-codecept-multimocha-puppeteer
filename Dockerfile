@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.13
 
 LABEL org.opencontainers.image.source https://github.com/mt-ag/docker-codecept-multimocha-puppeteer
 
@@ -14,7 +14,7 @@ RUN apk add --no-cache \
 
 # check version https://pkgs.alpinelinux.org/packages?name=chromium&branch=v3.14&repo=community
 RUN apk add --no-cache \
-   chromium --repository=http://dl-cdn.alpinelinux.org/alpine/v3.14/community
+   chromium --repository=http://dl-cdn.alpinelinux.org/alpine/v3.13/community
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
